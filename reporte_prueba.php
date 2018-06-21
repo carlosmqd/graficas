@@ -37,7 +37,7 @@ $resultlacc= mysqli_query($con,$sqlacc)or die(mysqli_error());
  
   while($rowacc=mysqli_fetch_array($resultlacc)) {
 	  
-	   $ac=$rowacc['accidente'];
+	  echo "ac".$ac=$rowacc['accidente'];
   }
 
 
@@ -64,11 +64,11 @@ $resultl= mysqli_query($con,$sql)or die(mysqli_error());
   while($row=mysqli_fetch_array($resultl)) {
       
   echo"lps";
-  echo $lps[] = $row['linea'];
+  echo $lps[$lpsi] = $row['linea'];
   echo"lpsc";
-    echo $lpsc[] = (int)$row['acc2018'];
+    echo $lpsc[$lpsi] = (int)$row['acc2018'];
  echo"lpsp";
-  echo $lpsp[] = (int)$row['acp2018'];
+  echo $lpsp[$lpsi] = (int)$row['acp2018'];
 
  // echo "<br><br>";
   
@@ -78,17 +78,9 @@ $resultl= mysqli_query($con,$sql)or die(mysqli_error());
 
  
  //----------------------------------------------resolver ----------------------------------------------
-   echo "prod1".$lpst[$lpsi]= (int)$ac-$lpsc[$lpsi] - $lpsp[$lpsi]-$lpsv[$lpsi];
+   echo "prod1".$lpst[$lpsi]= (int)$ac-$lpsc[$lpsi] - $lpsp[$lpsi];
   echo "total1".$lpst[$lpsi];
-  if ($lpst[$lpsi] <0 ){
-	  echo "prod2".$lpsp[$lpsi]= (int)$lpsp[$lpsi]-$lpsv[$lpsi];
-	 echo "total".$lpst[$lpsi]= (int)$ac-$lpsc[$lpsi] - $lpsp[$lpsi]-$lpsv[$lpsi];
-  }
-  if ($lpsp[$lpsi] <0 ){
-	 echo "prod2".$lpsp[$lpsi]= 0;
-	 echo "total2".$lpst[$lpsi]= (int)$ac-$lpsc[$lpsi] - $lpsp[$lpsi]-$lpsv[$lpsi];
-  }
-  //-------------------------------------------/resolver-------------------------------------------------
+  
   $lpsi=$lpsi+1;
   }
 ?>
